@@ -1,0 +1,58 @@
+.menu,
+.content,
+.submenu {
+  border-right: 3px solid lightcoral;
+  transition: all .5s
+}
+.menu,
+.submenu {
+  height: 100vh;
+}
+.content {
+  overflow-y: auto;
+}
+
+div.menu,
+.submenu {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 50px;
+}
+.menus {
+    font-size: 5vw;
+}
+
+
+.todo-item {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    float: left;
+    border: solid 2px white;
+    box-sizing: border-box;
+  }
+  
+  .example-enter {
+    opacity: 0.01;
+    width: 0px;
+  }
+  
+  .example-enter.example-enter-active {
+    opacity: 1;
+    width: 100px;
+    transition: 700ms;
+  }
+  
+  .example-leave {
+    opacity: 1;
+    width: 100px;
+  }
+  
+  .example-leave.example-leave-active {
+    opacity: 0.01;
+    width: 0px;
+    transition: 700ms;
+  }
+@import "./content.scss";
+@import './menu.scss';

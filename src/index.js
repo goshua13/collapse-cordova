@@ -1,12 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import { Router, Route } from "react-router-dom";
+import reducers from "./reducers";
+
+import history from "./history";
+import AppContainer from './containers/appContainer';
+
+
+import "./style/main.scss";
+import 'bootstrap/dist/css/bootstrap.css';
+
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const createStoreWithMiddleware = composeEnhancers(applyMiddleware(thunk))(
+  createStore
+);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const startApp = () => {
+  ReactDOM.render(
+    <Provider store={createStoreWithMiddleware(reducers)}>
+      <Router history={history}>
+        <div>
+          <Route path={['/:submenuId/:contentId', '/:submenuId', '/']} component={AppContainer} />
+        </div>
+      </Router>
+    </Provider>,
+    document.querySelector("#root")
+  );
+  serviceWorker.register()
+};
+
+if(window.cordova) {
+  document.addEventListener('deviceready', startApp, false);
+} else {
+  startApp();
+}

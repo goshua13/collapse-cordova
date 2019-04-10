@@ -1,0 +1,28 @@
+@keyframes rightside {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%)
+    }
+}
+
+h1 {
+    animation: dropping 1s ease-in;
+}
+h5 {
+    animation: dropping 1s ease-in;
+    animation-delay: .2s;
+} 
+hr {
+    animation: dropping 1s ease-in;
+    animation-delay: .3s;
+}
+h4 {
+    animation: dropping 1s ease-in;
+    animation-delay: .4s;
+}
+.bruh {
+    animation: rightside 1s ease-in;
+    animation-delay: none !important;
+}
