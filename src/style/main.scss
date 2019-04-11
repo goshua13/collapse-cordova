@@ -4,10 +4,20 @@
 }
 @mixin menus {
   font-size: 50px;
-  writing-mode: vertical-rl;
+  writing-mode: vertical-lr;
   letter-spacing: 0.2em;
   position: absolute;
   z-index: 2;
+}
+.tier-one,
+.tier-two,
+.tier-three {
+  background-color: rgb(73, 72, 72);
+  height: 100vh;
+}
+body {
+  padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2 */
 }
 li {
   color: black;
@@ -24,7 +34,7 @@ li {
 }
 .menu,
 .submenu {
-  height: 100vh;
+  height: 100%;
 }
 .content {
   overflow-y: auto;
@@ -34,7 +44,7 @@ li {
 .menu {
   background-color: rgba(43, 179, 149, 0.555);
   & ul {
-    font-size: 50px;
+    font-size: 40px;
   }
   & .main-menu {
     font-size: 80px;
@@ -57,18 +67,11 @@ li {
   }
   .menu ul {
     display: none;
-    font-size: 100px;
   }
   .main-menu {
-    font-size: 50px;
-    writing-mode: vertical-rl;
-    letter-spacing: 0.2em;
-    position: absolute;
+    @include menus();
+    left: 25%;
     top: 30%;
-    right: 5%;
-    z-index: 2;
-    transition-delay: 0.25s;
-    transition: all 0.15s ease 0s;
   }
 }
 .tier-three {
@@ -83,11 +86,13 @@ li {
   }
   .main-menu {
     @include menus();
-    top: 33.5%;
+    left: 25%;
+    top: 30%;
   }
   .submenu-menu {
     @include menus();
-    top: 35%;
+    left: 25%;
+    top: 33%;
   }
 }
 @import "./content.scss";
@@ -97,12 +102,15 @@ li {
   .tier-one {
     .menu {
       background-color: rgba(43, 179, 149, 0.555);
+      & ul {
+        font-size: 30px;
+      }
     }
     .main-menu {
       font-size: 50px;
     }
     .menu {
-      font-size: 35px;
+      font-size: 20px;
     }
   }
   .tier-two {
@@ -118,8 +126,8 @@ li {
     }
     .main-menu {
       @include menus();
-      top: 30%;
-      right: 10%;
+      left: -40%;
+      top: 25%;
     }
   }
   .tier-three {

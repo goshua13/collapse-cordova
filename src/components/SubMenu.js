@@ -34,12 +34,10 @@ class SubMenu extends Component {
   render() {
     const { params } = this.props;
     return (
-      <div className={`${this.renderStyles()} submenu`}>
-        <Link to={`/${params.submenuId}`}>
+      <Link to={`/${params.submenuId}`} className={`${this.renderStyles()} submenu`}>
           <h1 className='submenu-menu'>SubMenu</h1>
-        </Link>
-        {this.renderUser()}
-      </div>
+          {this.renderUser()}
+      </Link>
     );
   }
 }
