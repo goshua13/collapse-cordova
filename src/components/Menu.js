@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { 
-  fetchUsers
-} from "../actions";
-import { Link } from 'react-router-dom';
-
-
+import { fetchUsers } from "../actions";
+import { Link } from "react-router-dom";
 
 class Menu extends Component {
+
   // fetching users
   componentDidMount() {
     this.props.fetchUsers();
@@ -16,44 +13,43 @@ class Menu extends Component {
   renderUsers() {
     const { users } = this.props;
     return users.map(user => {
-      return (
-        <Link to={`/${user.id}`} key={user.id}>
-        <li>
-          {user.name}
-        </li>
-        </Link>
-      );
+        return (
+          <Link to={`/${user.id}`} key={user.id}>
+            <li>{user.name}</li>
+          </Link>
+        );
     });
   }
 
   renderStyles() {
-    const {params} = this.props;
+    const { params } = this.props;
     let class_name;
-    if(params) class_name = 'col-12 col-md-12 d-table'
-    if(params.submenuId) class_name ='col-2 col-md-4 d-table'
-    if(params.contentId) class_name = 'col-1 col-md-2 d-table'
+    if (params) class_name = "col-12 col-md-12";
+    if (params.submenuId) class_name = "col-2";
+    if (params.contentId) class_name = "col-2 col-md-2";
     return class_name;
   }
+ 
 
   render() {
     return (
-        <div className={`${this.renderStyles()} list-unstyled menu`}>
-        <div className='d-table-cell'>
-          <Link to='/'><h1 className='menus'>Main Menu</h1></Link>
-          {this.renderUsers()}
-          </div>
-        </div>
+      <div className={`${this.renderStyles()} menu`}>
+           <Link to="/">
+            <h1 className="main-menu">Main Menu</h1>
+          </Link>
+          <ul className='list-unstyled'>{this.renderUsers()}</ul>
+      </div>
     );
   }
 }
 const mapStateToProps = state => {
-  return { 
+  return {
     users: state.users,
     params: state.params
-   };
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchUsers}
+  { fetchUsers }
 )(Menu);

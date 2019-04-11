@@ -8,7 +8,7 @@ class SubMenu extends Component {
   renderStyles() {
     const { params } = this.props;
     let class_name;
-    if(params.submenuId ) class_name = "col-8" 
+    if(params.submenuId ) class_name = "col-10" 
     if(params.contentId) class_name = "col-2"
     return class_name;
   }
@@ -18,7 +18,7 @@ class SubMenu extends Component {
     const user = users[params.submenuId];
     if (user) {
       return (
-        <div className="list-unstyled align-content-center">
+        <ul className="list-unstyled align-content-center">
           <Link to={`/${params.submenuId}/address`}>
             <li>{user.address.city}</li>
           </Link>
@@ -26,7 +26,7 @@ class SubMenu extends Component {
           <Link to={`/${params.submenuId}/company`}>
             <li>{user.company.name}</li>
           </Link>
-        </div>
+        </ul>
       );
     }
   }
@@ -36,7 +36,7 @@ class SubMenu extends Component {
     return (
       <div className={`${this.renderStyles()} submenu`}>
         <Link to={`/${params.submenuId}`}>
-          <h1 className='menus'>SubMenu</h1>
+          <h1 className='submenu-menu'>SubMenu</h1>
         </Link>
         {this.renderUser()}
       </div>
