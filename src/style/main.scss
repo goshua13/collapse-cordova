@@ -4,16 +4,24 @@
 }
 @mixin menus {
   font-size: 50px;
-  writing-mode: vertical-lr;
+  writing-mode: vertical-rl;
   letter-spacing: 0.2em;
-  position: absolute;
+  position: sticky;
   z-index: 2;
 }
+
+
 .tier-one,
 .tier-two,
 .tier-three {
   background-color: rgb(73, 72, 72);
   height: 100vh;
+  opacity: 1;
+  overflow:hidden;
+  &:after {
+    transition: 2s ease-in-out;
+    opacity: 0;
+  }
 }
 body {
   padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
@@ -27,7 +35,7 @@ li {
 .content,
 .submenu {
   border-right: 3px solid lightcoral;
-  transition: all 0.5s;
+  transition: max-width min-width .5s ease-in;
   .submenu-menu .main-menu {
     color: white;
   }
@@ -43,58 +51,70 @@ li {
 
 .menu {
   background-color: rgba(43, 179, 149, 0.555);
-  & ul {
+   ul {
     font-size: 40px;
   }
-  & .main-menu {
+  .main-menu {
     font-size: 80px;
+    color: white;
+    &:hover {
+      text-decoration: none;
+      color: lightblue;
+    }
+  }
+  .current-user {
+    writing-mode: vertical-lr;
     color: white;
   }
 }
 .submenu {
-  & .submenu-menu {
+
+  .submenu-menu {
     font-size: 60px;
     color: white;
+    &:hover {
+      text-decoration: none;
+      color: lightblue;
+    }
   }
-  & ul {
+  ul {
     font-size: 40px;
   }
 }
 
 .tier-two {
   .submenu {
-    background-color: rgb(110, 43, 43);
+    background-color: rgb(124, 49, 49);
   }
-  .menu ul {
-    display: none;
+  .menu li{
+    font-size: 20px;
   }
   .main-menu {
-    @include menus();
-    left: 25%;
-    top: 30%;
+    font-size: 50px;
+
   }
 }
 .tier-three {
   .submenu {
+    margin: 0 auto;
     background-color: rgb(110, 43, 43);
   }
   .menu ul {
-    display: none;
+    
   }
   .submenu ul {
-    display: none;
+    font-size: 20px;
   }
   .main-menu {
-    @include menus();
-    left: 25%;
-    top: 30%;
+    font-size: 40px;
+
   }
   .submenu-menu {
-    @include menus();
-    left: 25%;
-    top: 33%;
+    font-size: 40px;
+
   }
 }
+
 @import "./content.scss";
 @import "./menu.scss";
 
@@ -117,8 +137,8 @@ li {
     .menu {
       background-color: rgba(45, 134, 115, 0.555);
     }
-    .menu ul {
-      display: none;
+    .menu li {
+      display: none !important;
       font-size: 100px;
     }
     .submenu {
@@ -126,7 +146,7 @@ li {
     }
     .main-menu {
       @include menus();
-      left: -40%;
+      margin: auto auto !important;
       top: 25%;
     }
   }
@@ -135,24 +155,26 @@ li {
       @include sticky();
       background-color: rgba(56, 182, 155, 0.678);
     }
-    .menu ul {
+    .menu li {
       display: none;
     }
     .submenu {
       @include sticky();
       background-color: rgb(133, 49, 49);
     }
-    .submenu ul {
+    .submenu ul{
       display: none;
     }
     .main-menu {
       @include menus();
-      left: -40%;
+      margin: auto auto;
+      overflow: hidden;
+      object-fit: contain;
       top: 25%;
     }
     .submenu-menu {
       @include menus();
-      left: -40%;
+      margin: auto auto;
       top: 27.6%;
     }
   }

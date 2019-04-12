@@ -4,7 +4,7 @@ import history from '../history';
 import { connect } from 'react-redux';
 import { paramsAction } from '../actions';
 
-import Menu from '../components/Menu';
+import MainMenu from '../components/MainMenu';
 import SubMenu from '../components/SubMenu';
 import Content from '../components/Content';
 
@@ -15,7 +15,6 @@ class AppContainer extends Component {
     const {params} = this.props;
     if(params.submenuId) tiers = 'tier-two';
     if(params.contentId) tiers = 'tier-three';
-    console.log(tiers)
     return tiers
   }
   render() {
@@ -23,7 +22,7 @@ class AppContainer extends Component {
     return (
       <div className={`row text-center ${this.renderTiers()}`}>
           <Router history={history}>
-            <Route path='/' component={Menu}/>
+            <Route path='/' component={MainMenu}/>
             <Route path='/:submenuId' component={SubMenu}/>
             <Route path='/:submenuId/:contentId' component={Content}/>
           </Router>

@@ -2,23 +2,25 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-// justify-content-center align-items-center
+import Menu from './Menu';
+
 
 class SubMenu extends Component {
   renderStyles() {
     const { params } = this.props;
     let class_name;
-    if(params.submenuId ) class_name = "col-10" 
-    if(params.contentId) class_name = "col-2"
+    if (params.submenuId) class_name = "col-10";
+    if (params.contentId) class_name = "col-2";
+    class_name += ' submenu'
     return class_name;
   }
 
-  renderUser(submenuId) {
+  renderUser() {
     const { users, params } = this.props;
     const user = users[params.submenuId];
     if (user) {
       return (
-        <ul className="list-unstyled align-content-center">
+        <ul className="list-unstyled">
           <Link to={`/${params.submenuId}/address`}>
             <li>{user.address.city}</li>
           </Link>
@@ -34,10 +36,12 @@ class SubMenu extends Component {
   render() {
     const { params } = this.props;
     return (
-      <Link to={`/${params.submenuId}`} className={`${this.renderStyles()} submenu`}>
-          <h1 className='submenu-menu'>SubMenu</h1>
-          {this.renderUser()}
-      </Link>
+      <Menu
+        link={`/${params.submenuId}`}
+        style={this.renderStyles()}
+        title={["SubMenu", "submenu-menu"]}
+        list={this.renderUser()}
+      />
     );
   }
 }

@@ -10,9 +10,10 @@ class Content extends Component {
   renderStyles() {
     const {params} = this.props;
     let class_name;
-    if(params.contentId) class_name = 'd-grid col-8'
+    if(params.contentId) class_name = 'col-8'
     return class_name
   }
+  
   render() {
     return (
       <div className={`${this.renderStyles()} content`}>
