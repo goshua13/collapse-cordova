@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Menu from './Menu';
-
+import Menu from "./Menu";
 
 class SubMenu extends Component {
   renderStyles() {
@@ -11,36 +10,45 @@ class SubMenu extends Component {
     let class_name;
     if (params.submenuId) class_name = "col-10";
     if (params.contentId) class_name = "col-2";
-    class_name += ' submenu'
+    class_name += " submenu";
     return class_name;
   }
 
-  renderUser() {
-    const { users, params } = this.props;
-    const user = users[params.submenuId];
+  renderUser(user, params) {
     if (user) {
-      return (
-        <ul className="list-unstyled">
-          <Link to={`/${params.submenuId}/address`}>
-            <li>{user.address.city}</li>
-          </Link>
-          <hr />
-          <Link to={`/${params.submenuId}/company`}>
-            <li>{user.company.name}</li>
-          </Link>
-        </ul>
-      );
+        return (
+          <ul className="list-unstyled submenu-list">
+            <Link to={`/${params.submenuId}/address`}>
+              <li>{user.address.city}</li>
+            </Link>
+            <hr />
+            <Link to={`/${params.submenuId}/company`}>
+              <li>{user.company.name}</li>
+            </Link>
+          </ul>
+        );
     }
   }
 
+  renderTitle(user) {
+    if(user) {
+      return (
+        <div className='submenu-title'>
+          {user.name}
+        </div>
+      )
+    } return <div className='submenu-title'>Sub-Menu</div>
+  }
+
   render() {
-    const { params } = this.props;
+    const { users, params } = this.props;
+    const user = users[params.submenuId];
     return (
       <Menu
         link={`/${params.submenuId}`}
         style={this.renderStyles()}
-        title={["SubMenu", "submenu-menu"]}
-        list={this.renderUser()}
+        title={this.renderTitle()}
+        list={this.renderUser(user, params)}
       />
     );
   }

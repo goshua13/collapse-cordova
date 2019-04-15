@@ -13,10 +13,10 @@ class MainMenu extends Component {
   }
   // rendering every user here
   renderUsers() {
-    const { users } = this.props;
+    const { users, params } = this.props;
     return users.map(user => {
       return (
-        <Link to={`/${user.id}`} key={user.id}>
+        <Link className='main-list' to={`/${user.id}`} key={user.id}>
           <li>{user.name}</li>
         </Link>
       );
@@ -29,19 +29,20 @@ class MainMenu extends Component {
     if (params) class_name = "col-12";
     if (params.submenuId) class_name = "col-2";
     if (params.contentId) class_name = "col-2";
-    class_name += ' menu'
+    class_name += ' main-menu'
     return class_name;
   }
-  renderCurrentUser() {
+
+  renderTitle() {
     const { users, params } = this.props;
     const user = users[params.submenuId];
     if(user) {
       return (
-        <div>
+        <div className='main-title'>
           {user.name}
         </div>
       )
-    }
+    } return <div className='main-title'>Main Menu</div>
   }
 
 // override boostrap with width percentage
@@ -50,11 +51,10 @@ class MainMenu extends Component {
 
   render() {
     return <Menu
-          currentUser={this.renderCurrentUser()}
           link='/'
           style={this.renderStyles()}
           list={this.renderUsers()}
-          title={['Main Menu', 'main-menu']}
+          title={this.renderTitle()}
           />
   }
 }

@@ -2,180 +2,97 @@
   top: 0;
   position: sticky;
 }
-@mixin menus {
-  font-size: 50px;
+@mixin Vmenus {
+  font-size: 30px;
   writing-mode: vertical-rl;
-  letter-spacing: 0.2em;
-  position: sticky;
+  letter-spacing: 0.4em;
   z-index: 2;
 }
-
 
 .tier-one,
 .tier-two,
 .tier-three {
-  background-color: rgb(73, 72, 72);
   height: 100vh;
-  opacity: 1;
-  overflow:hidden;
-  &:after {
-    transition: 2s ease-in-out;
-    opacity: 0;
-  }
-}
-body {
-  padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
-  padding-top: env(safe-area-inset-top); /* iOS 11.2 */
-}
-li {
-  color: black;
+  display: grid;
+  align-content: center;
+  background-image: linear-gradient(rgb(42, 85, 95), rgba(22, 32, 102, 0.575))
 }
 
-.menu,
-.content,
-.submenu {
-  border-right: 3px solid lightcoral;
-  transition: max-width min-width .5s ease-in;
-  .submenu-menu .main-menu {
-    color: white;
-  }
-}
-.menu,
-.submenu {
-  height: 100%;
-}
-.content {
-  overflow-y: auto;
-  background-color: rgba(221, 183, 86, 0.671);
-}
-
-.menu {
-  background-color: rgba(43, 179, 149, 0.555);
-   ul {
-    font-size: 40px;
-  }
-  .main-menu {
-    font-size: 80px;
-    color: white;
-    &:hover {
-      text-decoration: none;
-      color: lightblue;
-    }
-  }
-  .current-user {
-    writing-mode: vertical-lr;
-    color: white;
-  }
-}
-.submenu {
-
-  .submenu-menu {
+.tier-one {
+  .main-title {
     font-size: 60px;
-    color: white;
-    &:hover {
-      text-decoration: none;
-      color: lightblue;
-    }
   }
-  ul {
-    font-size: 40px;
+  .main-list {
+    font-size: 30px;
   }
 }
 
 .tier-two {
-  .submenu {
-    background-color: rgb(124, 49, 49);
+  .main-title {
+   
   }
-  .menu li{
-    font-size: 20px;
+  .main-list {
+    font-size:20px;
+    line-height: 40px;
   }
-  .main-menu {
-    font-size: 50px;
-
+  .submenu-title {
+    font-size: 60px;
+  }
+  .submenu-list {
+    font-size: 30px;
   }
 }
 .tier-three {
-  .submenu {
-    margin: 0 auto;
-    background-color: rgb(110, 43, 43);
+  .main-title {
+  
   }
-  .menu ul {
-    
+  .main-list {
+    font-size:20px;
+    line-height: 40px;
   }
-  .submenu ul {
+  .submenu-title {
     font-size: 20px;
-  }
-  .main-menu {
-    font-size: 40px;
-
-  }
-  .submenu-menu {
-    font-size: 40px;
-
   }
 }
 
-@import "./content.scss";
-@import "./menu.scss";
+$break-small: 500px;
 
-@media screen and (max-width: 500px) {
-  .tier-one {
-    .menu {
-      background-color: rgba(43, 179, 149, 0.555);
-      & ul {
-        font-size: 30px;
-      }
-    }
-    .main-menu {
-      font-size: 50px;
-    }
-    .menu {
-      font-size: 20px;
-    }
-  }
+@media screen and (max-width: $break-small) {
   .tier-two {
-    .menu {
-      background-color: rgba(45, 134, 115, 0.555);
+    .main-title {
+      @include Vmenus();
+      height: 80vh;
     }
-    .menu li {
-      display: none !important;
-      font-size: 100px;
-    }
-    .submenu {
-      background-color: rgb(110, 43, 43);
-    }
-    .main-menu {
-      @include menus();
-      margin: auto auto !important;
-      top: 25%;
+    .main-list {
+      display: none;
     }
   }
   .tier-three {
-    .menu {
-      @include sticky();
-      background-color: rgba(56, 182, 155, 0.678);
-    }
-    .menu li {
-      display: none;
+    .main-menu {
+      flex: 0 0 8.3333%;
+      max-width: 8.33333%;
+      .main-title {
+        @include Vmenus();
+        height: 80vh;
+      }
+      .main-list {
+        display: none;
+      }
     }
     .submenu {
-      @include sticky();
-      background-color: rgb(133, 49, 49);
+      flex: 0 0 8.3333%;
+      max-width: 8.33333%;
+      .submenu-title {
+        @include Vmenus();
+        height: 80vh;
+      }
+      .submenu-list {
+        display: none;
+      }
     }
-    .submenu ul{
-      display: none;
-    }
-    .main-menu {
-      @include menus();
-      margin: auto auto;
-      overflow: hidden;
-      object-fit: contain;
-      top: 25%;
-    }
-    .submenu-menu {
-      @include menus();
-      margin: auto auto;
-      top: 27.6%;
+    .content {
+      flex: 0 0 83.333333%;
+      max-width: 83.33333;
     }
   }
 }
