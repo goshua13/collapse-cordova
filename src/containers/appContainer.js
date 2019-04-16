@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Router, Route } from "react-router-dom";
 import history from "../history";
 import { connect } from "react-redux";
-import { paramsAction } from "../actions";
+import { paramsAction, mainMenuId } from "../actions";
 
 import MainMenu from "../components/MainMenu";
 import SubMenu from "../components/SubMenu";
@@ -18,8 +18,11 @@ class AppContainer extends Component {
     // if (params.contentId) tiers = "tier-three";
     return tiers;
   }
+
+  
   render() {
-    this.props.paramsAction(this.props.match.params);
+    const{paramsAction, menuId} = this.props;
+    // paramsAction(this.props.match.params);
     return (
       <div className={`row text-center ${this.renderTiers()}`}>
         <Router history={history}>
@@ -45,5 +48,5 @@ const mapStateToProps = ({ menu, id }) => {
 
 export default connect(
   mapStateToProps,
-  { paramsAction }
+  { paramsAction, mainMenuId }
 )(AppContainer);

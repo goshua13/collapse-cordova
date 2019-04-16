@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchUsers, mainMenuId } from "../actions";
-import history from '../history';
 import { Link } from "react-router-dom";
+import history from '../history';
 
 import Menu from "./Menu";
 
@@ -11,17 +11,22 @@ class MainMenu extends Component {
   componentDidMount() {
     this.props.fetchUsers();
   }
+
   // rendering every user here
   renderUsers() {
-    const { users } = this.props;
+    const { users } = this.props;  
     return users.map(user => {
+      const handleClick = () => {
+        this.props.mainMenuId(user.id)
+        history.push(`/${user.id}`)
+      }
       return (
         // update the store with the user.id that the app state knows what user its on
         // <Link className='main-list' to={`/${user.id}`} key={user.id}>
         //   <li onClick={() => this.props.mainMenuId(user.id)} >{user.name}</li>
         // </Link>
         <li
-          onClick={() => this.props.mainMenuId(user.id)}
+          onClick={() => handleClick()}
           className="main-list"
           key={user.id}
         >
