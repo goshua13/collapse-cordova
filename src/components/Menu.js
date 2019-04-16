@@ -1,6 +1,5 @@
 import React from "react";
 import { Link} from 'react-router-dom';
-import history from '../history';
 
 const Menu = ({ title, style, link, list }) => {
   return (

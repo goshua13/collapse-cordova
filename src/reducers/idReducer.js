@@ -11,7 +11,7 @@ export default (state = INITIAL_STATE, action) => {
     // case PARAMS_ACTION:
     //   return {params: action.payload};
     case MAIN_MENU_ID:
-      return {...state, menuId: action.payload - 1 };
+      return {...state, menuId: action.payload};
     case SUBMENU_ID:
       return {...state, submenuId: action.payload }
     default:

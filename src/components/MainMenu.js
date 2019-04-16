@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUsers, mainMenuId } from "../actions";
+import { fetchUsers, mainMenuId, submenuAction } from "../actions";
 import { Link } from "react-router-dom";
 import history from '../history';
 
@@ -37,9 +37,9 @@ class MainMenu extends Component {
   }
 
   renderStyles() {
-    const { menuId } = this.props;
+    const { menuId, submenuId } = this.props;
     let class_name;
-    if (menuId == null) class_name = "col-12";
+    if(menuId == null && submenuId == null) class_name = "col-12";
     if (menuId) class_name = "col-2";
     // if (params) class_name = "col-12";
     // if (params.submenuId) class_name = "col-2";
@@ -47,9 +47,13 @@ class MainMenu extends Component {
     class_name += " main-menu";
     return class_name;
   }
+  handleTitleClick() {
+    this.props.mainMenuId(null)
+    this.props.submenuAction(null)
+  }
 
   renderTitle() {
-    return <div className="main-title">Main Menu</div>;
+    return <div className="main-title" onClick={() => this.handleTitleClick()}>Main Menu</div>;
   }
 
   // use props to spit out each indivual stuff for the menus in each component
@@ -79,5 +83,5 @@ const mapStateToProps = ({ menu, id }) => {
 
 export default connect(
   mapStateToProps,
-  { fetchUsers, mainMenuId }
+  { fetchUsers, mainMenuId, submenuAction }
 )(MainMenu);

@@ -10,19 +10,21 @@ import Content from "../components/Content";
 
 class AppContainer extends Component {
   renderTiers() {
-    let tiers = "tier-one";
-    if(this.props.menuId) tiers = 'tier-two';
-    if (this.props.subMenuId) tiers = 'tier-three';
+    const {menuId, submenuId} = this.props;
+    let tiers;
+    if(menuId == null && submenuId == null) tiers = 'tier-one'
+    if(menuId != null) tiers = 'tier-two';
+    if(submenuId) tiers= 'tier-three'
     // const { params } = this.props;
     // if (params.submenuId) tiers = "tier-two";
     // if (params.contentId) tiers = "tier-three";
     return tiers;
   }
 
-  
+  componentWillUpdate() {
+    this.props.mainMenuId(this.props.match.params.submenuId)
+  }
   render() {
-    const{paramsAction, menuId} = this.props;
-    // paramsAction(this.props.match.params);
     return (
       <div className={`row text-center ${this.renderTiers()}`}>
         <Router history={history}>
