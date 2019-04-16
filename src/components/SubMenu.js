@@ -1,30 +1,37 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { submenuAction } from '../actions';
 import { Link } from "react-router-dom";
 
 import Menu from "./Menu";
 
 class SubMenu extends Component {
   renderStyles() {
-    const { params } = this.props;
-    let class_name;
-    if (params.submenuId) class_name = "col-10";
-    if (params.contentId) class_name = "col-2";
+    const { submenuId } = this.props;
+    let class_name = 'col-10';
+    // if (params.submenuId) class_name = "col-10";
+    // if (params.contentId) class_name = "col-2";
+    if(submenuId !== null) class_name = 'col-2'
     class_name += " submenu";
     return class_name;
   }
 
-  renderUser(user, params) {
+  renderUser(user) {
     if (user) {
         return (
+          // <ul className="list-unstyled submenu-list">
+          //   <Link to={`/${params.submenuId}/address`}>
+          //     <li>{user.address.city}</li>
+          //   </Link>
+          //   <hr />
+          //   <Link to={`/${params.submenuId}/company`}>
+          //     <li>{user.company.name}</li>
+          //   </Link>
+          // </ul>
           <ul className="list-unstyled submenu-list">
-            <Link to={`/${params.submenuId}/address`}>
-              <li>{user.address.city}</li>
-            </Link>
+            <li onClick={() => this.props.submenuAction(user.address.city)}>{user.address.city}</li>
             <hr />
-            <Link to={`/${params.submenuId}/company`}>
-              <li>{user.company.name}</li>
-            </Link>
+            <li onClick={() => this.props.submenuAction(user.company.name)}>{user.company.name}</li>
           </ul>
         );
     }
@@ -41,27 +48,33 @@ class SubMenu extends Component {
   }
 
   render() {
-    const { users, params } = this.props;
-    const user = users[params.submenuId];
+    console.log(this.props.submenuId)
+    const { users, menuId, params } = this.props;
+    // const user = users[params.submenuId];
+    const user = users[menuId]
     return (
       <Menu
-        link={`/${params.submenuId}`}
+        link={`/${user}`}
         style={this.renderStyles()}
         title={this.renderTitle()}
-        list={this.renderUser(user, params)}
+        list={this.renderUser(user)}
       />
     );
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = ({ menu, id }) => {
+  const { users } = menu;
+  const { params, menuId,submenuId } = id;
   return {
-    users: state.users,
-    params: state.params
+    submenuId,
+    menuId,
+    params,
+    users
   };
-}
+};
 
 export default connect(
   mapStateToProps,
-  null
+  {submenuAction}
 )(SubMenu);

@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 
 class Address extends Component {
   renderAddress() {
-    const { params, users } = this.props;
-    let user = users[params.submenuId];
+    const { params, users, menuId } = this.props;
+    // let user = users[params.submenuId];
+    let user = users[menuId]
     if (user)
       return (
         <div>
@@ -25,12 +26,15 @@ class Address extends Component {
     );
   }
 }
-function mapStateToProps(state) {
+const mapStateToProps = ({ menu, id }) => {
+  const { users } = menu;
+  const { params, menuId } = id;
   return {
-    users: state.users,
-    params: state.params
+    menuId,
+    params,
+    users
   };
-}
+};
 
 export default connect(
   mapStateToProps,

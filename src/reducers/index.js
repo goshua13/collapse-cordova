@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import usersReducer from './usersReducer';
-import paramsReducer from './paramsReducer';
+import idReducer from './idReducer';
 
 const rootReducer = combineReducers({
-  users: usersReducer,
-  params: paramsReducer
+  menu: usersReducer,
+  id: idReducer,
 });
 
 export default rootReducer;

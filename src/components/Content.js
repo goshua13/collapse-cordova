@@ -8,9 +8,10 @@ import Company from './content-components/company';
 
 class Content extends Component {
   renderStyles() {
-    const {params} = this.props;
+    const {params, submenuId} = this.props;
     let class_name;
-    if(params.contentId) class_name = 'col-8'
+    // if(params.contentId) class_name = 'col-8'
+    if(submenuId)  class_name = 'col-8'
     return class_name
   }
   
@@ -23,12 +24,16 @@ class Content extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = ({ menu, id }) => {
+  const { users } = menu;
+  const { params, submenuId } = id;
   return {
-    users: state.users,
-    params: state.params
+    submenuId,
+    params,
+    users
   };
 };
+
 export default connect(
   mapStateToProps,
   null

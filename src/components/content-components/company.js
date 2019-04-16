@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 
 class Company extends Component {
     renderCompany() {
-        const { users, params } = this.props;
-        const user = users[params.submenuId];
+        const { users, params, menuId } = this.props;
+        // const user = users[params.submenuId];
+        let user = users[menuId]
         if(user)
           return (
             <div>
@@ -27,10 +28,14 @@ class Company extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    return {
-        users: state.users,
-        params: state.params
-    }
-}
+const mapStateToProps = ({ menu, id }) => {
+  const { users } = menu;
+  const { params, menuId } = id;
+  return {
+    menuId,
+    params,
+    users
+  };
+};
+
 export default connect(mapStateToProps, null)(Company);

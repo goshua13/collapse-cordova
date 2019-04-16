@@ -19,10 +19,11 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const createStoreWithMiddleware = composeEnhancers(applyMiddleware(thunk))(
   createStore
 );
+const store =createStoreWithMiddleware(reducers) 
 
 const startApp = () => {
   ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={store}>
       <Router history={history}>
         <div>
           <Route path={['/:submenuId/:contentId', '/:submenuId', '/']} component={AppContainer} />
@@ -33,7 +34,7 @@ const startApp = () => {
   );
   serviceWorker.register()
 };
-
+export {store};
 if(window.cordova) {
   document.addEventListener('deviceready', startApp, false);
 } else {
