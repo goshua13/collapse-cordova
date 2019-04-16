@@ -18,13 +18,10 @@ class MainMenu extends Component {
     return users.map(user => {
       const handleClick = () => {
         this.props.mainMenuId(user.id)
+        this.props.submenuAction(null)
         history.push(`/${user.id}`)
       }
       return (
-        // update the store with the user.id that the app state knows what user its on
-        // <Link className='main-list' to={`/${user.id}`} key={user.id}>
-        //   <li onClick={() => this.props.mainMenuId(user.id)} >{user.name}</li>
-        // </Link>
         <li
           onClick={() => handleClick()}
           className="main-list"
@@ -38,12 +35,9 @@ class MainMenu extends Component {
 
   renderStyles() {
     const { menuId, submenuId } = this.props;
-    let class_name;
+    let class_name = 'col-12';
     if(menuId == null && submenuId == null) class_name = "col-12";
     if (menuId) class_name = "col-2";
-    // if (params) class_name = "col-12";
-    // if (params.submenuId) class_name = "col-2";
-    // if (params.contentId) class_name = "col-2";
     class_name += " main-menu";
     return class_name;
   }
@@ -55,9 +49,6 @@ class MainMenu extends Component {
   renderTitle() {
     return <div className="main-title" onClick={() => this.handleTitleClick()}>Main Menu</div>;
   }
-
-  // use props to spit out each indivual stuff for the menus in each component
-  // {/* show the active user from the redux store instead of Main menu using the user.id */}
 
   render() {
     return (
