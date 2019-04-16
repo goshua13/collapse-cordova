@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { submenuAction } from "../actions";
-import { Link } from "react-router-dom";
 import history from "../history";
 
 import Menu from "./Menu";
@@ -10,8 +9,6 @@ class SubMenu extends Component {
   renderStyles() {
     const { submenuId, menuId } = this.props;
     let class_name;
-    // if (params.submenuId) class_name = "col-10";
-    // if (params.contentId) class_name = "col-2"; 
     if(menuId) class_name = 'col-10'
     if(submenuId) class_name ='col-2'
     if(!submenuId) class_name ='col-10'
@@ -19,6 +16,10 @@ class SubMenu extends Component {
     return class_name;
   }
 
+  // Here I had to have two individual click functions because each had its 
+  //  specific set of chars that it had to go to
+  // in the future if it was an id Id only have one. could've done and if 
+  // statement also
   renderUser(user) {
     if (user) {
       const handleClickOne = () => {
@@ -30,15 +31,6 @@ class SubMenu extends Component {
         history.push(`/${user.id}/${user.company.name}`);
       };
       return (
-        // <ul className="list-unstyled submenu-list">
-        //   <Link to={`/${params.submenuId}/address`}>
-        //     <li>{user.address.city}</li>
-        //   </Link>
-        //   <hr />
-        //   <Link to={`/${params.submenuId}/company`}>
-        //     <li>{user.company.name}</li>
-        //   </Link>
-        // </ul>
         <ul className="list-unstyled submenu-list">
           <li onClick={() => handleClickOne()}>{user.address.city}</li>
           <hr />
@@ -49,15 +41,16 @@ class SubMenu extends Component {
   }
 
 
-
+// I just have a whole renderTitle function so that I can pass it in as a prop to the Menu componenet
+// There is a more efficient way though. maybe like passing it directly as the prop and doing the logic
+// in the prop.
   renderTitle() {
     return <div className="submenu-title" onClick={() => this.props.submenuAction(null)}>Sub-Menu</div>;
   }
 
   render() {
     console.log(this.props.match)
-    const { users, menuId, params } = this.props;
-    // const user = users[params.submenuId];
+    const { users, menuId } = this.props;
     const user = users[menuId];
     if(user) {
     return (
@@ -74,11 +67,10 @@ class SubMenu extends Component {
 
 const mapStateToProps = ({ menu, id }) => {
   const { users } = menu;
-  const { params, menuId, submenuId } = id;
+  const { menuId, submenuId } = id;
   return {
     submenuId,
     menuId,
-    params,
     users
   };
 };

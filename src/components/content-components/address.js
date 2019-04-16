@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 
 class Address extends Component {
   renderAddress() {
-    const { params, users, menuId } = this.props;
-    // let user = users[params.submenuId];
+    const { users, menuId } = this.props;
     let user = users[menuId]
     if (user)
       return (

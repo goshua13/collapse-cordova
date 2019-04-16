@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUsers, mainMenuId, submenuAction } from "../actions";
-import { Link } from "react-router-dom";
-import history from '../history';
+import { fetchUsers, mainMenuId, submenuAction } from "../actions";import history from '../history';
 
 import Menu from "./Menu";
 
@@ -16,6 +14,8 @@ class MainMenu extends Component {
   renderUsers() {
     const { users } = this.props;  
     return users.map(user => {
+      // This is what is helping update the redux store So then i can 
+      // update the styling and the url
       const handleClick = () => {
         this.props.mainMenuId(user.id)
         this.props.submenuAction(null)
@@ -41,6 +41,9 @@ class MainMenu extends Component {
     class_name += " main-menu";
     return class_name;
   }
+
+  // I had to update these as null so that in my styling I can
+  // have easy styling in renderStyle()
   handleTitleClick() {
     this.props.mainMenuId(null)
     this.props.submenuAction(null)

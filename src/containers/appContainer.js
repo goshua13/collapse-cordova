@@ -15,13 +15,13 @@ class AppContainer extends Component {
     if(menuId == null && submenuId == null) tiers = 'tier-one'
     if(menuId != null) tiers = 'tier-two';
     if(submenuId) tiers= 'tier-three'
-    // const { params } = this.props;
-    // if (params.submenuId) tiers = "tier-two";
-    // if (params.contentId) tiers = "tier-three";
     return tiers;
   }
 
   render() {
+    // This is only for web. this is what is making it so that the redux store
+    // is updated when you hit enter on the url or if you were
+    // to share the link with somebody else it can direct you there.
     this.props.paramsAction(this.props.match.params)
     this.props.mainMenuId(this.props.params.submenuId)
     this.props.submenuAction(this.props.params.contentId)

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 class Company extends Component {
     renderCompany() {
-        const { users, params, menuId } = this.props;
-        // const user = users[params.submenuId];
+        const { users, menuId } = this.props;
         let user = users[menuId]
         if(user)
           return (
