@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { submenuAction } from "../actions";
-import history from "../history";
 
 import Menu from "./Menu";
 
@@ -24,17 +23,17 @@ class SubMenu extends Component {
     if (user) {
       const handleClickOne = () => {
         this.props.submenuAction(user.address.city);
-        history.push(`/${user.id}/${user.address.city}`);
+        this.props.history.push(`/${user.id}/${user.address.city}`);
       };
       const handleClickTwo = () => {
         this.props.submenuAction(user.company.name);
-        history.push(`/${user.id}/${user.company.name}`);
+        this.props.history.push(`/${user.id}/${user.company.name}`);
       };
       return (
-        <ul className="list-unstyled submenu-list">
-          <li onClick={() => handleClickOne()}>{user.address.city}</li>
+        <ul className="list-unstyled">
+          <li className='submenu-list' onClick={() => handleClickOne()}>{user.address.city}</li>
           <hr />
-          <li onClick={() => handleClickTwo()}>{user.company.name}</li>
+          <li className='submenu-list' onClick={() => handleClickTwo()}>{user.company.name}</li>
         </ul>
       );
     }
@@ -49,13 +48,13 @@ class SubMenu extends Component {
   }
 
   render() {
-    console.log(this.props.match)
     const { users, menuId } = this.props;
     const user = users[menuId];
     if(user) {
     return (
       <Menu
         link={`/${user.id}`}
+        history={this.props.history}
         style={this.renderStyles()}
         title={this.renderTitle()}
         list={this.renderUser(user)}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUsers, mainMenuId, submenuAction } from "../actions";import history from '../history';
+import { fetchUsers, mainMenuId, submenuAction } from "../actions";
 
 import Menu from "./Menu";
 
@@ -19,7 +19,7 @@ class MainMenu extends Component {
       const handleClick = () => {
         this.props.mainMenuId(user.id)
         this.props.submenuAction(null)
-        history.push(`/${user.id}`)
+        this.props.history.push(`/${user.id}`)
       }
       return (
         <li
@@ -56,7 +56,8 @@ class MainMenu extends Component {
   render() {
     return (
       <Menu
-        link="/"
+        link={`/`}
+        history={this.props.history}
         style={this.renderStyles()}
         list={this.renderUsers()}
         title={this.renderTitle()}
@@ -67,10 +68,9 @@ class MainMenu extends Component {
 
 const mapStateToProps = ({ menu, id }) => {
   const { users } = menu;
-  const { params, menuId } = id;
+  const { menuId } = id;
   return {
     menuId,
-    params,
     users
   };
 };

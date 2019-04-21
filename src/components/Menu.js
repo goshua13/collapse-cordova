@@ -1,10 +1,10 @@
 import React from "react";
-import { Link} from 'react-router-dom';
 
-const Menu = ({ title, style, link, list }) => {
+const Menu = ({ title, style, link, list, history }) => {
+
   return (
     <div className={style}>
-      <Link to={link} style={{color: 'red'}} >{title}</Link>
+      <div onClick={() =>  history.push(link)}>{title}</div>
       <div className='list-unstyled'>{list}</div>
     </div>
   );

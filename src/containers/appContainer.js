@@ -11,9 +11,9 @@ import Content from "../components/Content";
 class AppContainer extends Component {
   renderTiers() {
     const {menuId, submenuId} = this.props;
-    let tiers;
+    let tiers ='tier-one';
     if(menuId == null && submenuId == null) tiers = 'tier-one'
-    if(menuId != null) tiers = 'tier-two';
+    if(menuId) tiers = 'tier-two';
     if(submenuId) tiers= 'tier-three'
     return tiers;
   }
