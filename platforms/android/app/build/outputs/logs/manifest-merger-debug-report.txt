@@ -1,0 +1,134 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [:CordovaLib] /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/CordovaLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:1-27:12
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:102-132
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml
+	android:hardwareAccelerated
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
+	xmlns:android
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:133-191
+	android:versionCode
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml
+supports-screens
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
+	android:largeScreens
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
+	android:smallScreens
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
+	android:normalScreens
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
+	android:xlargeScreens
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
+	android:resizeable
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
+	android:anyDensity
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
+uses-permission#android.permission.INTERNET
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
+uses-feature#android.software.leanback
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:5:5-87
+	android:required
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:5:60-84
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:5:19-59
+uses-feature#android.hardware.touchscreen
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:6:5-90
+	android:required
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:6:63-87
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:6:19-62
+application
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:7:5-20:19
+	android:supportsRtl
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:7:177-203
+	android:label
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:7:144-176
+	android:hardwareAccelerated
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:7:52-86
+	android:icon
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:7:87-121
+	android:banner
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:7:18-51
+	android:isGame
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:7:122-143
+activity#com.example.collapse.MainActivity
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:9-13:20
+	android:screenOrientation
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:194-230
+	android:label
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:97-134
+	android:launchMode
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:135-165
+	android:windowSoftInputMode
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:294-336
+	android:configChanges
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:19-96
+	android:theme
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:231-293
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:8:166-193
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:9:13-12:29
+	android:label
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:9:28-65
+action#android.intent.action.MAIN
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:10:17-69
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:10:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:11:17-77
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:11:27-74
+activity#com.example.collapse.TvActivity
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:9-19:20
+	android:screenOrientation
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:192-229
+	android:label
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:97-134
+	android:launchMode
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:135-165
+	android:windowSoftInputMode
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:293-335
+	android:configChanges
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:19-96
+	android:theme
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:230-292
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:14:166-191
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:15:13-18:29
+	android:label
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:15:28-65
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:17:17-86
+	android:name
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:17:27-83
+uses-sdk
+ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:21:5-74
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:21:5-74
+MERGED from [:CordovaLib] /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/CordovaLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/CordovaLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-44
+INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:21:5-74
+	android:targetSdkVersion
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:21:42-71
+	android:minSdkVersion
+		ADDED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml:21:15-41
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/src/main/AndroidManifest.xml

@@ -1,0 +1,4 @@
+#Wed Apr 24 15:10:16 MDT 2019
+base.0=/Users/joshuaaragon/Documents/Work/collapse-cordova/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

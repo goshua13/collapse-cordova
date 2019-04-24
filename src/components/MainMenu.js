@@ -17,6 +17,7 @@ class MainMenu extends Component {
       // This is what is helping update the redux store So then i can 
       // update the styling and the url
       const handleClick = () => {
+        console.log(this.props)
         this.props.mainMenuId(user.id)
         this.props.submenuAction(null)
         this.props.history.push(`/${user.id}`)
