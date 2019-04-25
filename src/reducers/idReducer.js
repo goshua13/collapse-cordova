@@ -3,17 +3,17 @@ import { PARAMS_ACTION, MAIN_MENU_ID, SUBMENU_ID } from "../actions/types";
 const INITIAL_STATE = {
   params: '',
   menuId: null,
-  submenuId: null
+  submenuUser: null
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case PARAMS_ACTION:
-      return {...state, params: action.payload};
+      return {...state, params: action.payload };
     case MAIN_MENU_ID:
-      return {...state, menuId: action.payload - 1};
+      return {...state, menuId: action.payload -1};
     case SUBMENU_ID:
-      return {...state, submenuId: action.payload }
+      return {...state, submenuUser: action.payload }
     default:
       return state;
   }

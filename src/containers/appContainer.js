@@ -9,13 +9,33 @@ import SubMenu from "../components/SubMenu";
 import Content from "../components/Content";
 
 class AppContainer extends Component {
+  constructor(props) {
+    super(props)
+    setTimeout(() => {
+      localStorage.setItem("first_time", '1')
+    }, 500)
+  }
+  
   renderTiers() {
-    const {menuId, submenuId} = this.props;
+    const {menuId, submenuUser} = this.props;
     let tiers ='tier-one';
-    if(menuId == null && submenuId == null) tiers = 'tier-one'
-    if(menuId) tiers = 'tier-two';
-    if(submenuId) tiers= 'tier-three'
+    if(menuId > -1) tiers = 'tier-two';
+    if(submenuUser) tiers= 'tier-three'
     return tiers;
+  }
+  
+  // deeplinkload to take care of the first loads of the page on a deep link
+  // deepLinkLoad() {
+  //   let deep_link_load;
+  //   if(this.state.first_load_complete && this.props.menuId) deep_link_load = 'deep-link-first-load'
+  //   return deep_link_load
+  // }
+   deepLinkLoad() {
+    let deep_link_load;
+    var firstTime = localStorage.getItem("first_time")
+    if(this.props.menuId > -1 && !firstTime) {
+        deep_link_load = 'deep-link-first-load'
+    } return deep_link_load
   }
 
   render() {
@@ -26,7 +46,7 @@ class AppContainer extends Component {
     this.props.mainMenuId(this.props.params.submenuId)
     this.props.submenuAction(this.props.params.contentId)
     return (
-      <div className={`row text-center ${this.renderTiers()}`}>
+      <div id='app-container' className={`row text-center ${this.renderTiers()} ${this.deepLinkLoad()}`}>
         <Router history={history}>
           <Route path="/" component={MainMenu} />
           <Route path="/:submenuId" component={SubMenu} />
@@ -39,9 +59,9 @@ class AppContainer extends Component {
 
 const mapStateToProps = ({ menu, id }) => {
   const { users } = menu;
-  const { params, menuId, submenuId } = id;
+  const { params, menuId, submenuUser } = id;
   return {
-    submenuId,
+    submenuUser,
     menuId,
     params,
     users

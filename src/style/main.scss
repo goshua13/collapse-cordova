@@ -12,34 +12,57 @@
   0% {left: 100%; }
   100% { left: 0 }
 }
+@keyframes fadeIn {
+  0%{opacity: .1;}
+  100%{opacity: 1}
+}
 
 $blue: rgba(93, 127, 177, 0.705);
 
+#app-container.deep-link-first-load {
+  .submenu {
+    animation-name: identifier !important;
+    animation-duration: 4s !important;
+  }
+  .content {
+    animation-name: identifier !important;
+    animation-duration: 4s !important;
+  }
+}
 
 .tier-one,
 .tier-two,
 .tier-three {
   height: 100vh;
-  background-image: linear-gradient(rgb(42, 85, 95), rgba(22, 32, 102, 0.575))
+  background-image: linear-gradient(rgb(42, 85, 95), rgba(22, 32, 102, 0.575));
+}
+.tier-one{
+  background-color: green;
+  transition: background-color 1s ease-in-out;
+}
+.tier-two{
+  background-color: red;
+  transition: background-color 1s ease-in-out;
+}
+.tier-three{
+  background-color: purple;
+  transition: background-color 1s ease-in-out;
 }
 .main-menu {
+  animation-name: fadeIn;
+  animation-duration: 1s;
   height: 100%;
   display: grid;
   align-content: center;
   border-right: 2px solid rgba(44, 137, 199, 0.418);
-  animation-name: identifier;
-  animation-duration: 1s;
-  transition: flex .5s ease-in;
   .main-title {
     color: white;
     &:hover {
-      color: $blue;
       cursor: pointer; 
     }
   }
-  .main-list {
+  .menu-list {
     &:hover {
-      color: $blue;
       cursor: pointer; 
     }
   }
@@ -51,11 +74,9 @@ $blue: rgba(93, 127, 177, 0.705);
   align-content: center;
   animation-name: identifier;
   animation-duration: 1s;
-  transition: flex .5s ease-in;
   .submenu-title{
     color: white;
     &:hover {
-      color: $blue;
       cursor: pointer; 
     }
   }
@@ -116,7 +137,7 @@ $break-small: 720px;
       height: 80vh;
       padding-left: 10px;
     }
-    .main-list {
+    .menu-list {
       display: none;
     }
   }
@@ -130,7 +151,7 @@ $break-small: 720px;
         @include Vmenus();
         height: 100vh;
       }
-      .main-list {
+      .menu-list {
         display: none;
       }
     }
@@ -140,10 +161,8 @@ $break-small: 720px;
       padding: 0;
       .submenu-title {
         @include Vmenus();
+        margin-top: 80%;
         height: 100vh;
-        &:hover {
-      
-        }
       }
       .submenu-list {
         display: none;
