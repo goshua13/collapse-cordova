@@ -5,6 +5,20 @@ import { submenuAction } from "../actions";
 import Menu from "./Menu";
 
 class SubMenu extends Component {
+
+state={x: window.innerWidth}
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+  updateWindowDimensions = () => {
+    this.setState({ x: window.innerWidth });
+  };
+
   renderStyles() {
     const { submenuUser, menuId } = this.props;
     let class_name;
@@ -41,15 +55,15 @@ class SubMenu extends Component {
       if(submenuUser === user.company.name) color2 = 'text-success'
 
       return (
-        <ul className="list-unstyled">
+        <ul className="list-unstyled submenu-list">
           <li 
-          className={`submenu-list ${color}`}
+          className={` ${color}`}
           onClick={() => handleClickOne()}>
             {user.address.city}
           </li>
           <hr />
           <li 
-          className={`submenu-list ${color2}`}
+          className={`${color2}`}
           onClick={() => handleClickTwo()}>
             {user.company.name}
           </li>
@@ -61,13 +75,21 @@ class SubMenu extends Component {
   // I just have a whole renderTitle function so that I can pass it in as a prop to the Menu componenet
   // There is a more efficient way though. maybe like passing it directly as the prop and doing the logic
   // in the prop.
+  title() {
+    let title;
+    const id = this.props.users[this.props.menuId];
+    if(this.state.x < 720 && this.props.submenuUser && id.address.city == this.props.submenuUser) if(id) title = id.address.city;
+    if(this.state.x < 720 && this.props.submenuUser && id.company.name == this.props.submenuUser) if(id) title = id.company.name;
+    if (this.state.x > 720 || !this.props.submenuUser) title = "Sub-Menu"
+    return title
+  }
   renderTitle() {
     return (
       <div
         className="submenu-title"
         onClick={() => this.props.submenuAction(null)}
       >
-        Sub-Menu
+        {this.title()}
       </div>
     );
   }

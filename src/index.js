@@ -25,7 +25,7 @@ const startApp = () => {
   ReactDOM.render(
     <Provider store={store}>
       <Router history={history}>
-        <div>
+        <div className='container-fluid'>
           <Route path={['/:submenuId/:contentId', '/:submenuId', '/']} component={AppContainer} />
         </div>
       </Router>
