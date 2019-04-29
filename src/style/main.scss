@@ -13,25 +13,32 @@ html, body {
   letter-spacing: 0.4em;
   z-index: 2;
 }
-@keyframes identifier {
+@keyframes rightToLeft {
   0% {left: 100%; }
   100% { left: 0 }
 }
+@keyframes leftToRight {
+  0%{left: 0}
+  100%{ left: 0%}
+}
 @keyframes fadeIn {
-  0%{opacity: .1;}
+  0%{opacity: 0;}
   100%{opacity: 1}
 }
-
+@keyframes submenuIn {
+  0%{opacity: 0; left: 100%; }
+  100%{opacity: 1; left: 0; }
+}
 
 $blue: rgba(93, 127, 177, 0.705);
 
 #app-container.deep-link-first-load {
   .submenu {
-    animation-name: identifier !important;
+    animation-name: rightToLeft !important;
     animation-duration: 4s !important;
   }
   .content {
-    animation-name: identifier !important;
+    animation-name: rightToLeft !important;
     animation-duration: 4s !important;
   }
 }
@@ -39,6 +46,7 @@ $blue: rgba(93, 127, 177, 0.705);
 .tier-one,
 .tier-two,
 .tier-three {
+  transition: flex 1s ease-in-out;
   height: 100vh;
   background-image: linear-gradient(rgb(42, 85, 95), rgba(22, 32, 102, 0.575));
 }
@@ -57,62 +65,74 @@ $blue: rgba(93, 127, 177, 0.705);
 .main-menu {
   display: grid;
   align-content: center;
-  animation-name: fadeIn;
-  animation-duration: 1s;
   position: sticky;
   .main-title {
     color: white;
     &:hover {
       cursor: pointer; 
+      color: $blue;
     }
   }
   .menu-list {
     &:hover {
       cursor: pointer; 
+      color: $blue !important;
     }
   }
 }
 .submenu {
   display: grid;
   align-content: center;
-  animation-name: identifier;
-  animation-duration: 1s;
   position: sticky;
   .submenu-title{
-    object-fit: contain;
     color: white;
     &:hover {
       cursor: pointer; 
+      color: $blue;
     }
   }
-  .submenu-list:hover {
-    color: $blue;
-    cursor: pointer;
+  .submenu-list{
+    li:hover{
+      color: $blue !important;
+      cursor: pointer;
+    }
   }
 }
 .content {
+  animation: rightToLeft .5s;
   overflow: auto;
   height: 100%;
-  animation-name: identifier;
-  animation-duration: 1s;
 }
 
 .tier-one {
+  .main-menu{
+    animation-name: fadeIn;
+    animation-duration: 1s;
+  }
   .main-title {
     font-size: 60px;
   }
-  .main-list {
+  .menu-list {
     font-size: 20px;
   }
 }
 
 .tier-two {
+  .main-menu {
+    animation: fadeIn .5s;
+    .col-2 {
+      transition: all .5s ease-in-out;
+    }
+  }
   .main-title {
     font-size: 30px;
   }
-  .main-list {
-    font-size:20px;
+  .menu-list {
+    font-size:15px;
     line-height: 40px;
+  }
+  .submenu{
+    animation: submenuIn .5s;
   }
   .submenu-title {
     font-size: 60px;
@@ -125,11 +145,14 @@ $blue: rgba(93, 127, 177, 0.705);
   .main-title {
     font-size: 30px;
   }
-  .main-list {
+  .menu-list {
     font-size:20px;
     line-height: 40px;
   }
-
+  .submenu{
+    animation-name: fadeIn;
+    animation-duration: 1s;
+  }
   .submenu-title {
     font-size: 30px;
   }
