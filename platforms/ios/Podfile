@@ -2,7 +2,7 @@
 
 platform :ios, '9.0'
 
-target 'Cordova-collapse' do
-	project 'Cordova-collapse.xcodeproj'
+target 'TenFoot' do
+	project 'TenFoot.xcodeproj'
 
 end

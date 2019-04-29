@@ -3,10 +3,6 @@ html, body {
   max-height: 100%;
 }
 
-@mixin sticky {
-  top: 0;
-  position: sticky;
-}
 @mixin Vmenus {
   font-size: 6vw;
   writing-mode: vertical-rl;
@@ -35,11 +31,11 @@ $blue: rgba(93, 127, 177, 0.705);
 #app-container.deep-link-first-load {
   .submenu {
     animation-name: rightToLeft !important;
-    animation-duration: 4s !important;
+    animation-duration: 4.5s !important;
   }
   .content {
     animation-name: rightToLeft !important;
-    animation-duration: 4s !important;
+    animation-duration: 4.5s !important;
   }
 }
 
@@ -47,8 +43,9 @@ $blue: rgba(93, 127, 177, 0.705);
 .tier-two,
 .tier-three {
   transition: flex 1s ease-in-out;
+  transition: all .7s ease-in-out;
   height: 100vh;
-  background-image: linear-gradient(rgb(42, 85, 95), rgba(22, 32, 102, 0.575));
+  background-image: radial-gradient(rgba(61, 61, 194, 0.146), rgba(235, 182, 191, 0.781))
 }
 .tier-one{
   background-color: green;
@@ -155,6 +152,9 @@ $blue: rgba(93, 127, 177, 0.705);
   }
   .submenu-title {
     font-size: 30px;
+  }
+  .content {
+    padding-top: 5vh !important;
   }
 }
 

@@ -18,7 +18,7 @@
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "classnames": "^2.2.6",
     "cordova-browser": "^6.0.0",
-    "cordova-ios": "^5.0.0",
+    "cordova-ios": "^5.0.1",
     "css-loader": "1.0.0",
     "d": "^1.0.0",
     "dotenv": "6.0.0",
@@ -133,11 +133,12 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
-      "ios",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }

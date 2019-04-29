@@ -78,8 +78,8 @@ state={x: window.innerWidth}
   title() {
     let title;
     const id = this.props.users[this.props.menuId];
-    if(this.state.x < 720 && this.props.submenuUser && id.address.city == this.props.submenuUser) if(id) title = id.address.city;
-    if(this.state.x < 720 && this.props.submenuUser && id.company.name == this.props.submenuUser) if(id) title = id.company.name;
+    if(this.state.x < 720 && this.props.submenuUser && id.address.city === this.props.submenuUser) if(id) title = id.address.city;
+    if(this.state.x < 720 && this.props.submenuUser && id.company.name === this.props.submenuUser) if(id) title = id.company.name;
     if (this.state.x > 720 || !this.props.submenuUser) title = "Sub-Menu"
     return title
   }

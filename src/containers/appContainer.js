@@ -31,9 +31,10 @@ class AppContainer extends Component {
   //   return deep_link_load
   // }
   deepLinkLoad() {
+    const {menuId} = this.props;
     let deep_link_load;
     var firstTime = localStorage.getItem("first_time");
-    if (this.props.menuId > -1 && !firstTime) {
+    if (menuId > -1 && !firstTime) {
       deep_link_load = "deep-link-first-load";
     } else deep_link_load = "";
     return deep_link_load;
