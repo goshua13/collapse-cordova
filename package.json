@@ -16,7 +16,11 @@
     "bfj": "6.1.1",
     "bootstrap": "^4.3.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+<<<<<<< HEAD
     "classnames": "^2.2.6",
+=======
+    "cordova-android": "^8.0.0",
+>>>>>>> master
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.0.1",
     "css-loader": "1.0.0",
@@ -137,8 +141,14 @@
       "cordova-plugin-splashscreen": {}
     },
     "platforms": [
+<<<<<<< HEAD
       "browser",
       "ios"
+=======
+      "ios",
+      "browser",
+      "android"
+>>>>>>> master
     ]
   }
 }
